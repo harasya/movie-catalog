@@ -1,0 +1,97 @@
+.auth-layout {
+    @apply grid grid-cols-2 h-screen;
+    h2 {
+        @apply text-2xl font-bold;
+    }
+    a {
+        @apply underline;
+    }
+    &__image {
+      @apply hidden lg:block;
+      background: #abbd81;
+    }
+    &__content {
+        @apply flex flex-col justify-center items-start mx-auto space-y-4;
+        input {
+            @apply w-full;
+        }
+        form {
+            @apply space-y-4;
+        }
+        button {
+            @apply w-full bg-red-500 text-white font-medium;
+        }
+    }
+}
+
+header {
+    @apply container mx-auto text-center;
+    h1 {
+        @apply text-4xl my-7 font-bold;
+    }
+    .menu {
+        @apply flex justify-between items-center;
+        ul {
+            @apply flex justify-center items-center gap-12;
+            li {
+                @apply cursor-pointer;
+            }
+        }
+    }
+}
+
+.product {
+    @apply container mx-auto;
+    h1 {
+        @apply text-2xl mb-10 mt-6 font-bold;
+    }
+    &-detail {
+        @apply flex gap-12;
+    }
+}
+
+.products {
+    @apply container mx-auto;
+    h2 {
+        @apply text-2xl mb-10 mt-6 font-bold;
+    }
+    &-container {
+        @apply flex gap-12;
+        .total {
+            @apply text-sm mb-8;
+        }
+        .show-more {
+            @apply text-sm my-8 text-center cursor-pointer;
+        }
+        .sidebar {
+            @apply w-[282px] flex-none space-y-6;
+            h3 {
+                @apply text-xl font-bold;
+            }
+            .movie, .genre {
+                @apply space-y-3;
+                &-item {
+                    @apply text-sm;
+                    &.active {
+                        @apply font-bold;
+                    }
+                }
+            }
+        }
+        .lists {
+            @apply grid grid-cols-2 lg:grid-cols-4 gap-4;
+        }
+    }
+}
+
+.loading-container {
+    @apply flex justify-center items-center h-screen;
+}
+
+.btn {
+    @apply px-4 py-2 rounded-md;
+}
+
+input {
+    @apply px-4 py-2 rounded-md border ring-0  outline-none;
+}
