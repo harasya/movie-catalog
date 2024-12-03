@@ -21,14 +21,14 @@ const List = () => {
         try {
             const {results, total_results} = await UseApi('/search/movie', {
                 method: 'GET',
-                params: {query: keyword, page}
+                params: {query: keyword}
             })
             setProducts(results);
             setTotal(total_results)
         } catch (err) {
             setError(err.message);
         }
-    }, [keyword, page])
+    }, [keyword])
 
     const fetchProducts = useCallback(async (slug) => {
         try {
@@ -44,19 +44,20 @@ const List = () => {
     }, [page])
 
     useEffect(() => {
-        if(keyword)
-            fetchSearchProducts()
-    }, [keyword, fetchSearchProducts])
-
-    useEffect(() => {
-        if(!keyword) {
+        if(keyword === null) {
             setProducts([])
         }
 
+        if(keyword)
+            fetchSearchProducts()
+
+    }, [keyword, fetchSearchProducts])
+
+    useEffect(() => {
         if(movie) {
             fetchProducts(movie);
         }
-    }, [movie, page, keyword, fetchProducts])
+    }, [movie, page, fetchProducts])
 
     useEffect(() => {
         if(!movie) {

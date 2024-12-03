@@ -6,8 +6,7 @@ import { omit } from "radash";
 
 const Header = () => {
     const user = auth.currentUser;
-    const [searchParams, setSearchParams] = useSearchParams();
-    console.warn("💢 ~ Header ~ searchParams:", searchParams)
+    const [_, setSearchParams] = useSearchParams();
     const location = useLocation();
 
     const params = new URLSearchParams(location.search);
